@@ -9,6 +9,7 @@ cp /home/vagrant/localhost.conf /etc/apache2/vhosts.d/localhost.conf
 mkdir -p /srv/www/vhosts/localhost/
 a2enmod proxy
 a2enmod proxy_http
+systemctl enable apache2
 rcapache2 restart
 
 # installation de flask
@@ -26,4 +27,5 @@ chown -R flaskappuser:flaskappuser /home/flaskappuser/
 # configuration du systemd pour le service flaskapp
 cp /home/vagrant/flaskapp.service /etc/systemd/system/flaskapp.service
 systemctl daemon-reload
+systemctl enable flaskapp
 systemctl start flaskapp
