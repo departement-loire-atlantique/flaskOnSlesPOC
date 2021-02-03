@@ -19,6 +19,7 @@ mkdir -p /home/flaskappuser/flaskapp/logs
 cd /home/flaskappuser/flaskapp/
 python3 -m venv flaskvenv
 source flaskvenv/bin/activate
+pip install --upgrade pip
 pip install flask gunicorn six appdirs packaging
 cp /home/vagrant/app.py /home/flaskappuser/flaskapp/app.py
 cp /home/vagrant/gunicorn.conf /home/flaskappuser/flaskapp/gunicorn.conf
