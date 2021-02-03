@@ -2,7 +2,7 @@
 # vi: set ft=ruby :
 
 Vagrant.configure("2") do |config|
-  config.vm.box = "opensuse/Tumbleweed.x86_64"
+  config.vm.box = "opensuse/Leap-15.2.x86_64"
 
   # Forwarded ports
   config.vm.network "forwarded_port", guest: 80, host: 80, host_ip: "127.0.0.1"
@@ -12,6 +12,9 @@ Vagrant.configure("2") do |config|
     # the machine name
     vb.name = "flaskapp-POC"
   end
+  
+  # Disabling the default /vagrant
+  config.vm.synced_folder ".", "/vagrant", disabled: true
 
   # install apache and flask
   config.vm.provision "file", source: "localhost.conf", destination: "/home/vagrant/localhost.conf"
