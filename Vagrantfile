@@ -12,6 +12,9 @@ Vagrant.configure("2") do |config|
     # the machine name
     vb.name = "flaskapp-POC"
   end
+  
+  # Disabling the default /vagrant
+  config.vm.synced_folder ".", "/vagrant", disabled: true
 
   # install apache and flask
   config.vm.provision "file", source: "localhost.conf", destination: "/home/vagrant/localhost.conf"
